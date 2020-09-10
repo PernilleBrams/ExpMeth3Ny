@@ -194,9 +194,9 @@ Some things to pay attention to:
 * make sure to understand whether (and if so why) there are NAs in the dataset (e.g. some measures were not taken at all visits, some recordings were lost or permission to use was withdrawn)
 
 ```{r}
-df1 <- merge(demo_train_sub, LU_train_sub)
+df1 <- merge(demo_train_sub, LU_train_sub, all = T)
 
-df <- merge(df1, token_train_sub)
+df <- merge(df1, token_train_sub, all = T)
 
 colnames(df)[8] <- "vIQ"
 
