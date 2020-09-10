@@ -219,8 +219,8 @@ Some things to pay attention to:
 
 ```{r}
 # Merging first two of the datasets into one and then merge with the third, so that all three datasets are now combined into one called "df"
-df1 <- merge(demo_train_sub, LU_train_sub)
-df <- merge(df1, token_train_sub)
+df1 <- merge(demo_train_sub, LU_train_sub, all = T)
+df <- merge(df1, token_train_sub, all = T)
 
 # Renaming a misspelling in the Ethnicity variable for participant nr 6, visit 3
 df[32, 4] <- "Bangladeshi"
@@ -243,9 +243,14 @@ A possible way to do so:
 # Wishing to only keep the "visit 1" scores in the four clinical variables of the ADOS score, the verbal IQ, the nonverbal IQ and the socialization score, a subset is created where those four, subject ID is included only for the first visit for each participant. A column with a number ID is also created while there is just one column for each participant, which can then be used as identifier instead of the "SUBJ" variable.   
 data_sub <- df %>%
   select(SUBJ, VISIT, ADOS, vIQ, nvIQ, Socialization) %>% # Selecting the desired variables
-  filter(VISIT == "1") %>% # Choosing only the rows from the first visit
-  subset(select = -VISIT) %>% # Removing the "VISIT" column
-  rowid_to_column("ID") # Creating a new column with a number for each row, which in this case equals each participant
+  rename(c(
+    ADOS1 = ADOS,
+    vIQ1 = vIQ,
+    nvIQ1 = nvIQ,
+    Socialization1 = Socialization)) %>%
+      filter(VISIT == "1") %>% # Choosing only the rows from the first visit
+      subset(select = -VISIT) %>% # Removing the "VISIT" column
+      rowid_to_column("ID") # Creating a new column with a number for each row, which in this case equals each participant
 
 # Removing the existing clinical variables from the dataframe "df"
 df <- subset(df, select = -c(ADOS, vIQ, nvIQ, Socialization))

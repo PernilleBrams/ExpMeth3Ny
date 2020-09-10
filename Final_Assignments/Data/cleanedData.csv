@@ -1,4 +1,4 @@
-"ID","ADOS","vIQ","nvIQ","Socialization","VISIT","Diagnosis","Ethnicity","Gender","Age","CHI_MLU","MOT_MLU","types_MOT","types_CHI","tokens_MOT","tokens_CHI"
+"ID","ADOS1","vIQ1","nvIQ1","Socialization1","VISIT","Diagnosis","Ethnicity","Gender","Age","CHI_MLU","MOT_MLU","types_MOT","types_CHI","tokens_MOT","tokens_CHI"
 1,0,14,28,108,"1","TD","White","M",19.8,1.252252252,3.621993127,378,14,1835,139
 1,0,14,28,108,"2","TD","White","M",23.93,1.013605442,3.857366771,403,18,2160,148
 1,0,14,28,108,"3","TD","White","M",27.7,1.556886228,4.321880651,455,97,2149,255
