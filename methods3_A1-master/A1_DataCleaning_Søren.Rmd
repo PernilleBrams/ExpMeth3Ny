@@ -179,11 +179,32 @@ Most variables should make sense, here the less intuitive ones.
 Feel free to rename the variables into something you can remember (i.e. nonVerbalIQ, verbalIQ)
 
 ```{r}
-demo_train_sub <- select(demo_train, SUBJ, VISIT, Diagnosis, Ethnicity, Gender, Age, ADOS, MullenRaw, ExpressiveLangRaw, Socialization)
-  
-LU_train_sub <- select(LU_train, SUBJ, VISIT, CHI_MLU, MOT_MLU)
+demo_train_sub <-
+  select(
+    demo_train,
+    SUBJ,
+    VISIT,
+    Diagnosis,
+    Ethnicity,
+    Gender,
+    Age,
+    ADOS,
+    MullenRaw,
+    ExpressiveLangRaw,
+    Socialization
+  )
 
-token_train_sub <- select(token_train, SUBJ, VISIT, types_MOT, types_CHI, tokens_MOT, tokens_CHI)
+LU_train_sub <-
+  select(LU_train, SUBJ, VISIT, CHI_MLU, MOT_MLU)
+
+token_train_sub <-
+  select(token_train,
+         SUBJ,
+         VISIT,
+         types_MOT,
+         types_CHI,
+         tokens_MOT,
+         tokens_CHI)
 
 ```
 
@@ -285,12 +306,12 @@ USING ARRANGE
 2. Sort kids to find the kid who produced the least amount of words on the 1st visit.
 
 ```{r}
-token6 <- 
+token6 <-
   df %>% filter(VISIT == 6) %>% arrange(-tokens_CHI)
 
 token6[1, 1]
 
-token1 <- 
+token1 <-
   df %>% filter(VISIT == 1) %>% arrange(tokens_CHI)
 
 token1[1, 1]
