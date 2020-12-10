@@ -58,8 +58,8 @@ N.B. Create a GitHub repository for the Assignment 1 and link it to a project on
 If you're not in a project in Rstudio, make sure to set your working directory here.
 If you created an RStudio project, then your working directory (the directory with your data and code for these assignments) is the project directory.
 
+#This part of the code is written by PB
 ```{r}
-
 # Loading the necessary packages
 pacman::p_load(tidyverse,janitor)
 ```
@@ -122,6 +122,7 @@ colnames(demo_train)[2] <- "VISIT"
 
 Tip: The stringr package is what you need. str_extract() will allow you to extract only the digit (number) from a string, by using the regular expression \\d.
 
+# This part of the code is written by SOH
 
 ```{r}
 # Using the str_extract() function to remove anything from the values of the VISIT variable, that are not numbers
@@ -176,6 +177,8 @@ Most variables should make sense, here the less intuitive ones.
 
 Feel free to rename the variables into something you can remember (i.e. nonVerbalIQ, verbalIQ)
 
+# This part of the code is written by JJ
+
 ```{r}
 # Selecting the needed variables from the demo dataset using the select() function
 demo_train_sub <- select(demo_train, SUBJ, VISIT, Diagnosis, Ethnicity, Gender, Age, ADOS, MullenRaw, ExpressiveLangRaw, Socialization)
@@ -215,7 +218,7 @@ A possible way to do so:
 * rename the clinical variables (e.g. ADOS to ADOS1) and remove the visit (so that the new clinical variables are reported for all 6 visits)
 * merge the new dataset with the old
 
-
+# This part of the code is written by KK
 
 ```{r}
 
@@ -293,6 +296,7 @@ The aim of this last section is to make sure you are fully fluent in the tidyver
 Here's the link to a very helpful book, which explains each function:
 http://r4ds.had.co.nz/index.html
 
+# This part of the code is written by CP
 
 1) USING FILTER
 List all kids who:
